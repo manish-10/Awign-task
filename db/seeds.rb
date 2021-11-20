@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+course_list=[
+    "Computer Programming",
+    "Information Science",
+    "Networking",
+    "Operating Systems",
+    'Artificial Intelligence',
+    "Theory, Logic and Design",
+    "Multimedia"
+]
+
+course_list.length.times do |i|
+    Course.create(name: course_list[i])
+end
