@@ -4,12 +4,20 @@ class StudentsController < ApplicationController
   end
 
   def new
+    @student = Student.new
   end
 
   def create
-  end
+    @student = Student.create(params.require(:student).permit(:name, :age))
+      if @student.valid?
+        redirect_to student_path
+      else
+        flash[:errors] = @student.errors.full_messages
+        redirect_to new_student_path
+      end
 
   def show
+    @student= Student.find(params[:id]))
   end
 
   def edit

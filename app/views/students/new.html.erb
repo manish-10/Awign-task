@@ -1,2 +1,14 @@
-<h1>Students#new</h1>
-<p>Find me in app/views/students/new.html.erb</p>
+<h1>Student New Form</h1>
+# <p>Find me in app/views/students/new.html.erb</p>
+<% if flash[:errors]%>
+    <% flash[:errors].each do |error| %>
+        <p style="color: red"><%= error%></p>
+    <%end%>
+<%end%>
+<%= form_for @student do |f| %>
+    <%= f.label 'Name'%>
+    <%= f.text_field :name %>
+    <%= f.label 'Student Age'%>
+    <%= f.text_field :age %>
+    <%= f.submit 'Create Student'%>
+    <% end %>
