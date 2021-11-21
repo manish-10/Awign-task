@@ -1,14 +1,50 @@
-<h1>Student New Form</h1>
 
-<% if flash[:errors]%>
-    <% flash[:errors].each do |error| %>
-        <p style="color: red"><%= error%></p>
-    <%end%>
-<%end%>
-<%= form_for @student do |f| %>
-    <%= f.label 'Name'%>
-    <%= f.text_field :name %>
-    <%= f.label 'Student Age'%>
-    <%= f.text_field :age %>
-    <%= f.submit 'Create Student'%>
-    <% end %>
+
+
+
+
+   
+    <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+      <div class="absolute inset-0 bg-gradient-to-r from-cyan-200 to-sky-300 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+      <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+        <div class="max-w-md mx-auto">
+          <div>
+          <p class="text-3xl font-bold">New Students Form</p>
+          </div>
+          <div class="divide-y divide-gray-200">
+            <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7 wi-full h-full">
+              <div class=" space-y-2 align-items-center place-items-center w-full h-full">
+                 
+                    <div class="flex justify-between place-items-center font-semibold w-full h-full space-y-3 ">
+                      
+                      <%= form_for @student do |f| %>
+                        <div class="flex justify-between place-items-center"> 
+                            <%= f.label 'Name', class: ''%>
+                            <%= f.text_field :name, class: 'ml-2 shadow-sm font-semibold p-1 px-3 outline-none rounded-lg bg-cyan-200 bg-opaacity-20 text-gray-400 ' %>
+                        </div>
+                        <div class="flex justify-between place-items-center mt-2">
+                            <%= f.label 'Student Age'%>
+                            <%= f.text_field :age, class: 'ml-2 shadow-sm font-semibold p-1 px-3 outline-none rounded-lg bg-cyan-200 bg-opaacity-20 text-gray-400'%>
+                            
+                        </div>
+                        <div><%= f.submit 'Create Student' , class:'mt-5 font-semibold shadow-sm py-1 px-2 rounded-lg bg-cyan-200 text-gray-500 cursor-pointer'%></div>
+                        <div class="mt-2"><% if flash[:errors]%>
+                        <% flash[:errors].each do |error| %>
+                            <p style="color: red"><%= error%></p>
+                        <%end%>
+                    <%end%></div>
+                        <% end %>
+                          
+  
+                      
+                    </div>
+                      </div>
+                      
+              </div>
+             
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

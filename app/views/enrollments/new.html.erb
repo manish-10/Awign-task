@@ -1,10 +1,39 @@
-<h1>Enrollments#new</h1>
 
 
-<%= form_for @enrollment do |f|%>
-    <%= f.label :course_id%>
-    <%= f.collection_select :course_id, Course.all, :id, :name %>
-    <%= f.label :student_id%>
-    <%= f.collection_select :student_id, Student.all, :id, :name %>
-    <%= f.submit 'Create Course' %>
-<% end%>
+
+<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+<div class="relative py-3 sm:max-w-xl sm:mx-auto">
+  <div class="absolute inset-0 bg-gradient-to-r from-cyan-200 to-sky-300 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+  <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+    <div class="max-w-md mx-auto">
+      <div>
+      <p class="text-3xl font-bold">New Enrollments</p>
+      </div>
+      <div class="divide-y divide-gray-200">
+        <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7 wi-full h-full">
+          <div class=" space-y-2 align-items-center place-items-center w-full h-full">
+             
+                
+                <%= form_for @enrollment do |f|%>
+                    <div class="justify-between place-items-center font-semibold w-full h-full space-y-3 ">
+                        <%= f.label :course_id%>
+                        <%= f.collection_select :course_id, Course.all, :id, :name %>
+                    </div>
+                    <div class="justify-between place-items-center font-semibold w-full h-full space-y-3 ">
+                        <%= f.label :student_id%>
+                        <%= f.collection_select :student_id, Student.all, :id, :name%>
+                    </div>
+                    <%= f.submit 'Create Course',class:'mt-5 font-semibold shadow-sm py-1 px-2 rounded-lg bg-cyan-200 text-gray-500 cursor-pointer' %>
+                <% end%>
+                 
+                  
+                  
+          </div>
+         
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+                        
+                

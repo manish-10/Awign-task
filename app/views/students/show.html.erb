@@ -1,17 +1,57 @@
-<h1>Student Show</h1>
-<h2>Name: <%= @student.name %></h2>
-<h2>Age: <%= @student.age %></h2>
 
-<h2>Courses: </h2>
-<%= button_to "Register Course", new_enrollment_path, method: :get %> 
-<ul>
-    <% @student.enrollments.each do |enrollment|%>
-        <li><%= enrollment.course.name%></li>
-        <%= button_to "Drop Enrollment", enrollment_path(enrollment), method: :delete%>
-    <%end%>
-</ul>
 
-<%= button_to 'Edit Student', edit_student_path, method: :get%> 
-<%= button_to 'Destroy Student', student_path, method: :delete%>
 
-<%= link_to 'Delete Student', student_path%>
+
+
+
+
+<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+  <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+    <div class="absolute inset-0 bg-gradient-to-r from-cyan-200 to-sky-300 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+    <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+      <div class="max-w-md mx-auto">
+        <div>
+        <p class="text-3xl font-bold">Students Show</p>
+        </div>
+        <div class="divide-y divide-gray-200">
+
+          <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7 font-semibold">
+            <div class="flex justify-between w-full h-full " >
+                <h2>Name: <%= @student.name %></h2>
+                <div class="flex justify-around align-items-centers w-1/4">
+                <%= link_to edit_student_path, method: :get do%> 
+                    <svg  stroke="green" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                <%end%>
+                 
+                <%= link_to student_path, method: :delete do%>
+                    <svg  stroke="currentColor" fill="red" stroke-width="0" viewBox="0 0 1024 1024" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"></path></svg>
+                <%end%>
+                    </div>
+            </div>
+            <h2 >Age: <%= @student.age %></h2>
+
+            <div class="flex justify-between">
+                <h2>Course </h2>
+                <%= link_to new_enrollment_path, method: :get do%> 
+                <svg stroke="currentColor" fill="blue" stroke-width="0" viewBox="0 0 512 512" height="25px" width="25px" xmlns="http://www.w3.org/2000/svg"><path d="M256 48C141.125 48 48 141.125 48 256s93.125 208 208 208 208-93.125 208-208S370.875 48 256 48zm107 229h-86v86h-42v-86h-86v-42h86v-86h42v86h86v42z"></path></svg>
+                <%end%>
+            </div>
+            <div>
+            <ul>
+            <% @student.enrollments.each do |enrollment|%>
+                <li><%= enrollment.course.name%></li>
+                <%= button_to enrollment_path(enrollment), method: :delete do%>
+                    <svg  stroke="currentColor" fill="red" stroke-width="0" viewBox="0 0 1024 1024" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"></path></svg>
+                <%end%>
+            <%end%>
+        </ul>   
+            </div>
+            
+          <div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

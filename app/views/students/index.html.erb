@@ -1,21 +1,27 @@
-
-
-
 <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
   <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-    <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-sky-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-cyan-200 to-sky-300 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
     <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
       <div class="max-w-md mx-auto">
         <div>
-        <p class="h-6">Students Index</p>
+        <p class="text-3xl font-bold">Students Index</p>
         </div>
         <div class="divide-y divide-gray-200">
           <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-          <%= button_to "Add New Student", new_student_path, method: :get %>
-            <ul class="list-disc space-y-2">
-            <% @students.each do |student| %>
-                <li><%= link_to student.name, student_path(student) %></>
-                <%end%>
+          <%= button_to "Add New Student", new_student_path, method: :get, class: 'text-base bg-cyan-300 text-gray-500 font-semibold rounded-lg py-1 px-2 cursor-pointer shadow-sm' %>
+            <ul class=" space-y-2 align-items-center">
+                <% @students.each do |student| %>
+                    <div class="flex justify-between align-items-center">
+                    <div><li class="text-bold font-semibold"><%= student.name%></></div>
+                    
+                    <div><%= link_to student_path(student) do %>
+                        <svg stroke="green" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+
+
+                    <%end%>
+                    </div>
+                    </div>
+                    <%end%>
             </ul>
            
         </div>
