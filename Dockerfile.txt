@@ -1,0 +1,14 @@
+FROM ruby:latest
+WORKDIR /app
+# RUN git clone https://github.com/manish-10/Awign-task.git .
+COPY . . 
+RUN bundle install
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+RUN apt-get install -y nodejs
+RUN npm i -g yarn
+RUN rails db:create
+RUN rails db:migrate
+RUN rails db:seed
+RUN rails assets:precompile
+# RUN rails webpacker:install
+CMD rails s -p $PORT -b '0.0.0.0'
